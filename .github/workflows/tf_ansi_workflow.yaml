@@ -2,7 +2,7 @@ name: 'CI-CD by Terraform-Ansible-GHA'
 on:
   push:
     branches:
-    - main
+    - master
   pull_request:
   workflow_dispatch:
     inputs:
@@ -15,7 +15,7 @@ on:
         description: 'Select the serivce release branch to checkout the code repo'
         required: true
         type: string
-        default: "main"
+        default: "master"
 jobs:
   provision-resources-byterraform:
     name: 'Terraform'
@@ -59,7 +59,7 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
       run: |
         cd terraform
         terraform apply -auto-approve
