@@ -12,8 +12,8 @@
 # Each set of credentials ensures that Terraform can perform its specific tasks securely and with the necessary permissions. 
 terraform {
   backend "gcs" {
-    bucket = "tf-states-demo" # create gs://tf-states-demo
-    prefix = "tf_ansi/state"  # create folders "terraform/state" --> gs://tf-states-demo/terraform/state/
+    bucket = "terraform_eternal-wonder-380709" # create gs://tf-states-demo
+    prefix = "Terraform"  # create folders "terraform/state" --> gs://tf-states-demo/terraform/state/
     ######## On run "Terraform init", TF will put default state at gs://tf-states-demo/terraform/state/default.tfstate 
     #credentials = "zinc-arc-396916-9d8a70ea2239.json"
   }
@@ -30,7 +30,7 @@ variable "region" {
   default     = "us-west4"
 }
 locals {
-  project       = "zinc-arc-396916"
+  project       = "eternal-wonder-380709"
   instance_name = "my-tf-ansi-vm1"
   instance_zone = "us-west4-a"
   machine_type  = "e2-medium"
