@@ -1,9 +1,9 @@
 ---
-    - name: Set permissions for id_rsa
+    - name: Set permissions for id_ed25519
       hosts: localhost  
       tasks:
         - name: Set permissions
-          command: chmod 600 ./id_rsa
+          command: chmod 600 ./id_ed25519
 
     - name: Install Apache and Set Index Page
       hosts: webservers
